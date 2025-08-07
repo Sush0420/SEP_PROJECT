@@ -32,57 +32,65 @@ public class TanCalculatorGui extends JFrame {
    * Sets up user input, buttons, labels, and their respective event handlers.
    */
   public TanCalculatorGui() {
-  setTitle("tan(x) Calculator - v" + VERSION);
-  setDefaultCloseOperation(EXIT_ON_CLOSE);
-  setSize(400, 240);
-  setLocationRelativeTo(null);
-  setLayout(new GridLayout(5, 1)); // Changed from 4 to 5 for version label
+    setTitle("tan(x) Calculator - v" + VERSION);
+    setDefaultCloseOperation(EXIT_ON_CLOSE);
+    setSize(400, 240);
+    setLocationRelativeTo(null);
+    setLayout(new GridLayout(5, 1));
 
-  JLabel inputLabel = new JLabel("Enter x (in radians):", SwingConstants.CENTER);
-  inputLabel.setFont(inputLabel.getFont().deriveFont(14f));
+    JLabel inputLabel = new JLabel("Enter x (in radians):", SwingConstants.CENTER);
+    inputLabel.setFont(inputLabel.getFont().deriveFont(14f));
 
-  inputField = new JTextField();
-  inputField.setToolTipText("Input a real number in radians (e.g., 1.57)");
+    inputField = new JTextField();
+    inputField.setToolTipText("Input a real number in radians (e.g., 1.57)");
+    inputField.getAccessibleContext().setAccessibleName("Input Field");
+    inputField.getAccessibleContext().setAccessibleDescription("Enter angle in radians");
 
-  JButton computeButton = new JButton("Compute tan(x)");
-  computeButton.setToolTipText("Click to compute tan(x) using sin(x)/cos(x)");
+    JButton computeButton = new JButton("Compute tan(x)");
+    computeButton.setToolTipText("Click to compute tan(x) using sin(x)/cos(x)");
+    computeButton.getAccessibleContext().setAccessibleName("Compute Button");
+    computeButton.getAccessibleContext().setAccessibleDescription("Computes tan of the input value");
 
-  JButton clearButton = new JButton("Clear");
-  clearButton.setToolTipText("Reset the input and result fields");
+    JButton clearButton = new JButton("Clear");
+    clearButton.setToolTipText("Reset the input and result fields");
+    clearButton.getAccessibleContext().setAccessibleName("Clear Button");
+    clearButton.getAccessibleContext().setAccessibleDescription("Clears both input and output");
 
-  final JButton exitButton = new JButton("Exit");
-  exitButton.setToolTipText("Exit the application");
+    final JButton exitButton = new JButton("Exit");
+    exitButton.setToolTipText("Exit the application");
+    exitButton.getAccessibleContext().setAccessibleName("Exit Button");
+    exitButton.getAccessibleContext().setAccessibleDescription("Closes the application");
 
-  resultLabel = new JLabel(" ", SwingConstants.CENTER);
+    resultLabel = new JLabel(" ", SwingConstants.CENTER);
+    resultLabel.getAccessibleContext().setAccessibleName("Result Label");
+    resultLabel.getAccessibleContext().setAccessibleDescription("Displays computed tangent value");
 
-  JPanel buttonPanel = new JPanel();
-  buttonPanel.add(computeButton);
-  buttonPanel.add(clearButton);
-  buttonPanel.add(exitButton);
+    JPanel buttonPanel = new JPanel();
+    buttonPanel.add(computeButton);
+    buttonPanel.add(clearButton);
+    buttonPanel.add(exitButton);
 
-  JLabel versionLabel = new JLabel("Version " + VERSION, SwingConstants.RIGHT);
-  versionLabel.setFont(versionLabel.getFont().deriveFont(11f));
+    JLabel versionLabel = new JLabel("Version " + VERSION, SwingConstants.RIGHT);
+    versionLabel.setFont(versionLabel.getFont().deriveFont(11f));
+    versionLabel.getAccessibleContext().setAccessibleName("Version Label");
+    versionLabel.getAccessibleContext().setAccessibleDescription("Shows application version");
 
-  add(inputLabel);
-  add(inputField);
-  add(buttonPanel);
-  add(resultLabel);
-  add(versionLabel); // New row
+    add(inputLabel);
+    add(inputField);
+    add(buttonPanel);
+    add(resultLabel);
+    add(versionLabel);
 
-  computeButton.addActionListener(e -> computeTan());
-  clearButton.addActionListener(e -> {
-    inputField.setText("");
-    resultLabel.setText(" ");
-  });
-  exitButton.addActionListener(e -> System.exit(0));
+    computeButton.addActionListener(e -> computeTan());
+    clearButton.addActionListener(e -> {
+      inputField.setText("");
+      resultLabel.setText(" ");
+    });
+    exitButton.addActionListener(e -> System.exit(0));
 
-  setVisible(true);
-}
+    setVisible(true);
+  }
 
-  /**
-   * Computes the tangent of the input value using Taylor series approximations
-   * for sine and cosine. Displays the result or an error message.
-   */
   private void computeTan() {
     try {
       double x = Double.parseDouble(inputField.getText());
@@ -98,12 +106,6 @@ public class TanCalculatorGui extends JFrame {
     }
   }
 
-  /**
-   * Computes the sine of a given angle using the Taylor series expansion.
-   *
-   * @param x the input angle in radians
-   * @return the approximated value of sin(x)
-   */
   private double calculateSin(double x) {
     double sum = 0;
     for (int n = 0; n < 10; n++) {
@@ -112,12 +114,6 @@ public class TanCalculatorGui extends JFrame {
     return sum;
   }
 
-  /**
-   * Computes the cosine of a given angle using the Taylor series expansion.
-   *
-   * @param x the input angle in radians
-   * @return the approximated value of cos(x)
-   */
   private double calculateCos(double x) {
     double sum = 0;
     for (int n = 0; n < 10; n++) {
@@ -126,12 +122,6 @@ public class TanCalculatorGui extends JFrame {
     return sum;
   }
 
-  /**
-   * Calculates the factorial of a non-negative integer.
-   *
-   * @param n the integer value
-   * @return factorial of the given number
-   */
   private long factorial(int n) {
     long result = 1;
     for (int i = 2; i <= n; i++) {
@@ -140,11 +130,6 @@ public class TanCalculatorGui extends JFrame {
     return result;
   }
 
-  /**
-   * Entry point of the application. Launches the TanCalculator GUI.
-   *
-   * @param args command-line arguments (not used)
-   */
   public static void main(String[] args) {
     SwingUtilities.invokeLater(TanCalculatorGui::new);
   }
