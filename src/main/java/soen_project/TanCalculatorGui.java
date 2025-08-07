@@ -91,6 +91,10 @@ public class TanCalculatorGui extends JFrame {
     setVisible(true);
   }
 
+  /**
+   * Computes the tangent of the input value using Taylor series approximations
+   * for sine and cosine. Displays the result or an error message.
+   */
   private void computeTan() {
     try {
       double x = Double.parseDouble(inputField.getText());
@@ -106,7 +110,13 @@ public class TanCalculatorGui extends JFrame {
     }
   }
 
-  private double calculateSin(double x) {
+  /**
+   * Computes the sine of a given angle using the Taylor series expansion.
+   *
+   * @param x the input angle in radians
+   * @return the approximated value of sin(x)
+   */
+  public double calculateSin(double x) {
     double sum = 0;
     for (int n = 0; n < 10; n++) {
       sum += Math.pow(-1, n) * Math.pow(x, 2.0 * n + 1) / factorial((int) (2.0 * n + 1));
@@ -114,7 +124,13 @@ public class TanCalculatorGui extends JFrame {
     return sum;
   }
 
-  private double calculateCos(double x) {
+  /**
+   * Computes the cosine of a given angle using the Taylor series expansion.
+   *
+   * @param x the input angle in radians
+   * @return the approximated value of cos(x)
+   */
+  public double calculateCos(double x) {
     double sum = 0;
     for (int n = 0; n < 10; n++) {
       sum += Math.pow(-1, n) * Math.pow(x, 2.0 * n) / factorial((int) (2.0 * n));
@@ -122,7 +138,13 @@ public class TanCalculatorGui extends JFrame {
     return sum;
   }
 
-  private long factorial(int n) {
+  /**
+   * Calculates the factorial of a non-negative integer.
+   *
+   * @param n the integer value
+   * @return factorial of the given number
+   */
+  public long factorial(int n) {
     long result = 1;
     for (int i = 2; i <= n; i++) {
       result *= i;
@@ -130,6 +152,11 @@ public class TanCalculatorGui extends JFrame {
     return result;
   }
 
+  /**
+   * Entry point of the application. Launches the TanCalculator GUI.
+   *
+   * @param args command-line arguments (not used)
+   */
   public static void main(String[] args) {
     SwingUtilities.invokeLater(TanCalculatorGui::new);
   }

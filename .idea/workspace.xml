@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be55ed23-169d-42e7-b017-73b47c6ae188" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/soen_project/TanCalculatorGuiTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/SOEN_Project.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SOEN_Project.test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/soen_project/TanCalculatorGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/soen_project/TanCalculatorGui.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/soen_project/TanCalculatorGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soen_project/TanCalculatorGui.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,10 +50,10 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Admin/SEP_PROJECT",
+    "last_opened_file_path": "C:/Users/Admin/SEP_PROJECT/lib/junit-platform-launcher-1.10.0.jar",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
